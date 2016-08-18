@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html ng-app="githubViewer">
+
+  <head>
+    <script src="Scripts/angular.js"></script>
+    <link rel="stylesheet" href="Styles/style.css" />
+    <script src="JS/script.js"></script>
+  </head>
+
+  <body ng-controller="MainController">
+    <h1>{{ message }}</h1>
+
+    <div>{{ error }}</div>
+
+    {{username}}
+    <form name="searchUser" ng-submit="search()">
+        <input type="search" required placeholder="User to find..." ng-model="username" />
+        <input type="submit" value="Search" />
+    </form>
+
+    <!-- Su alttaki versiyonda, search box'i bos birakip arama yapabiliriz. Ama bunu istemiyoruz.
+        searchbox'a required ekledik, ama bu ng-click'i durdurmazdi cunku o baska bir controlde.
+        Onun yerine form'a ng-submit verdik, ng-click'i diger kontrolden kaldirdik. -->
+    <!--form name="searchUser">
+        <input type="search" placeholder="User to find..." ng-model="username" />
+        <input type="submit" value="Search" ng-click="search()" />
+    </form-->
+
+    <div>
+        <h2>{{user.name}}</h2>
+        <img ng-src="{{user.avatar_url}}" title="{{user.name}}">
+    </div>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Stars</th>
+                <th>Language</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr ng-repeat="repo in repos">
+                <td>{{repo.name}}</td>
+                <td>{{repo.stargazers_count | number}}</td> <!-- number filter'i 23145'i 23,145 olarak gosterir -->
+                <td>{{repo.language}}</td>
+            </tr>
+        </tbody>
+    </table>
+  </body>
+</html>
