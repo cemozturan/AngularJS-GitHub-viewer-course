@@ -11,7 +11,7 @@ plnkr.co
 
 Theme olarak monokai sec, sagda preview windowda, editors seceneginde (sag altta).
 preview window'un auto-refresh olmasini iptal edebilirsin. Edersen, preview window icindeki yesil kareye bas, refresh eder. Mavi olan ise yeni bir windowda acar preview'i, daha cok alan gorebilesin diye.
-Github' hesabi ile login olabilirsin, oraya atarsin isini.
+Github hesabi ile login olabilirsin, oraya atarsin isini.
 zip olarak download edebilirsin isini.
 Ustte bir tick var, beautify eder kodu, indentation filan duzelir hep.
 
@@ -124,4 +124,20 @@ Guvenlik nedeni ile browser diskteki dosyalara erisime izin vermez (file://path)
 
 SO'ya gore local bir server kurup nodeJS ile filan sonra oradan file serve etmek gerekiyormus (localhost:8080/path gibi)
 
+-----------------------------
+
+SERVICES
+
+If the logic doesn't fit in a model, view, or a directive, then it should probably be a service.
+Tekrar kullanilabilirler.
+
+Iki tane built-in Angular service'i:
+$timeout (setTimeout icin wrapper. setTimeout(someFunc, X), X kadar bekler ve verilen fonksiyonu cagirir)
+$interval (setInterval icin wrapper. setInterval(someFunc, X), her X'te verilen fonksiyonu cagirir)
+
+Normal JS fonksiyonlari olan setTimeout/setInterval yerine Angular'inkileri kullanmanin iki faydasi:
+1) Unit testing cok daha kolay
+2) Two-way binding calisir. Normal JS versiyonlarinda ekran update olmaz.
+
+$log service'i debugging icin ise yarar.
 
