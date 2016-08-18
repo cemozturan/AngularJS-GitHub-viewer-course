@@ -116,3 +116,12 @@ repo in repos | limitTo:10
 repo in repos | filter:searchTerm | orderBy:'name' --- Ascending by default
 repo in repos | filter:searchTerm | orderBy:'-name' --- Descending
 
+-- ng-include --
+
+<div ng-include="'Views/userdetails.html'"> </div>
+
+Guvenlik nedeni ile browser diskteki dosyalara erisime izin vermez (file://path). Butun chrome instancelari kapatip command line'dan "start chrome --allow-file-access-from-files" (quotelar olmadan) yazmak zorunda kaldim. Butun chrome'lari kapatmadan calismadi.
+
+SO'ya gore local bir server kurup nodeJS ile filan sonra oradan file serve etmek gerekiyormus (localhost:8080/path gibi)
+
+
