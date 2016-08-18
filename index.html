@@ -40,7 +40,7 @@
             </tr>
         </thead>
         <tbody>
-            <tr ng-repeat="repo in repos">
+            <tr ng-repeat="repo in repos | orderBy:'-stargazers_count'">
                 <td>{{repo.name}}</td>
                 <td>{{repo.stargazers_count | number}}</td> <!-- number filter'i 23145'i 23,145 olarak gosterir -->
                 <td>{{repo.language}}</td>

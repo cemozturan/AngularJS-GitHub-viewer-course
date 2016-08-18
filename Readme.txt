@@ -47,6 +47,7 @@ CONTROLLERS
 
 Never manipulates the HTML (i.e., view) directly. Manipulates the model (things we attach to $scope). Separation of concerns.
 There are often multiple controllers even on a single page, each is responsible for a different feature. Can even be nested.
+Controllers can use services (e.g., $http)
 
 -- Calling HTTP --
 
@@ -73,3 +74,45 @@ Simplified:
 			$scope.user = response.data;
 	});
 };
+
+"then(successCallback, failureCallback)": then'e verilen ilk parametre basarili bir response gelince execute edilen fonksiyon, ikinci fonksiyon ise eger bir hata olmussa execute edilecek olan fonksiyon.
+
+-- Controllers and Modules --
+
+Controllers usually live in modules, avoids global namespace. It's easy to work with modules:
+
+1) Create a module with a name
+ * var app = angular.module("moduleName", []); // array is the list of dependencies
+2) Register your controllers in the module
+ * app.controller("controllerName", controllerFunction);
+3) Tell Angular to use your module with ng-app
+ * <div ng-app="moduleName"> ... </div>
+
+-----------------------------
+
+DIRECTIVES and VIEWS
+
+-- Philosophy --
+
+* $scope provides the model
+* Model does not touch HTML
+* Data binding moves model data to view (<h1>{{ message }}</h1>)
+* Bu separation of concerns.
+* Directives allow for indirect model view interaction.
+
+-- ng-model --
+
+Creates a two-way binding, keeps the data in sync.
+
+-- Filters --
+
+Basic format: expression|filterName:parameter
+Examples:
+{{amount | currency:"USD$"}}
+{{startDate | date:'short'}}
+{{repo | json}} --- Useful for dumping things on the UI and debugging
+{{filter | searchTerm}}
+repo in repos | limitTo:10
+repo in repos | filter:searchTerm | orderBy:'name' --- Ascending by default
+repo in repos | filter:searchTerm | orderBy:'-name' --- Descending
+
