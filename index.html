@@ -12,7 +12,6 @@
 
     <div>{{ error }}</div>
 
-    {{username}}
     <form name="searchUser" ng-submit="search()">
         <input type="search" required placeholder="User to find..." ng-model="username" />
         <input type="submit" value="Search" />
@@ -26,18 +25,19 @@
         <input type="submit" value="Search" ng-click="search()" />
     </form-->
 
-    <div>
+    <div ng-show="user">
         <h2>{{user.name}}</h2>
         <img ng-src="{{user.avatar_url}}" title="{{user.name}}">
+
+        Order:
+        <select ng-model="repoSortOrder">
+          <option value="+name">Name</option>
+          <option value="-stargazers_count">Stars</option>
+          <option value="+language">Language</option>
+        </select>
     </div>
 
-    <select ng-model="repoSortOrder">
-      <option value="+name">Name</option>
-      <option value="-stargazers_count">Stars</option>
-      <option value="+language">Language</option>
-    </select>
-
-    <table>
+    <table ng-show="user">
         <thead>
             <tr>
                 <th>Name</th>
