@@ -141,3 +141,18 @@ Normal JS fonksiyonlari olan setTimeout/setInterval yerine Angular'inkileri kull
 
 $log service'i debugging icin ise yarar.
 
+$location service'i address bar update icin kullan.
+
+$anchorScroll service'i scroll icin kullan, id'si olan bir elementi kullanarak.
+
+Mesela arama sonuclari div'ine HTML'de id = "results" veririz, sonra su kodu kullanarak o sonuclara scroll edebiliriz:
+$location.hash("results");
+$anchorScroll();
+
+-- Custom Services --
+
+Why build your own?
+
+1) Create reusable logic, package it in a container.
+2) Create shared data. Her service'in sadece bir instance'i var. Farkli controllerlar, viewlar hep ayni service instance'i kullanir, ayni data olur.
+3) Manage complexity.
