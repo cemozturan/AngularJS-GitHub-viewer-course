@@ -1,19 +1,19 @@
 (function(){
 
-    var githubService = function($http){
+    let githubService = function($http){
 
             // .then() returns a promise, so whatever calls getUser
             // will get a promise, they won't get a user.
-            var getUser = function(username){
+            let getUser = (username) => {
                 return $http.get("https://api.github.com/users/" + username)
-                            .then(function(response){
+                            .then((response) => {
                                 return response.data;
                             });
             };
 
-            var getRepos = function(user){
+            let getRepos = (user) => {
                 return $http.get(user.repos_url)
-                            .then(function(response){
+                            .then((response) => {
                                 return response.data;
                             });
             };
@@ -23,6 +23,6 @@
                 getRepos: getRepos
             };
     };
-    var module = angular.module("githubViewer");
+    let module = angular.module("githubViewer");
     module.factory("githubService", githubService);
 }());

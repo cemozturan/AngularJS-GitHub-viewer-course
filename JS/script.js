@@ -1,38 +1,38 @@
 (function(){
 
-    var app = angular.module('githubViewer', []);
+    let app = angular.module('githubViewer', []);
 
-    var MainController = function($scope, githubService, $interval, $anchorScroll, $location) {
+    let MainController = function($scope, githubService, $interval, $anchorScroll, $location) {
 
-        var onUserComplete = function(data){
+        let onUserComplete = (data) => {
             $scope.user = data;
             githubService.getRepos($scope.user).then(onRepos, onError);
         };
 
-        var onRepos = function(data){
+        let onRepos = (data) => {
             $scope.repos = data;
             $location.hash("userDetails");
             $anchorScroll();
         };
 
-        var onError = function(reason){
+        let onError = (reason) => {
                 $scope.error = "Could not fetch the data!";
         };
 
-        var decrementCount = function(){
+        let decrementCount = () => {
                 $scope.countdown--;
                 if ($scope.countdown < 1){
                     $scope.search();
                 }
         };
 
-        var countdownInterval = null;
-        $scope.startCountdown = function(){
+        let countdownInterval = null;
+        $scope.startCountdown = () => {
                 // Call decrementCount once a second 5 times (countdown is initialised to 5)
                 countdownInterval = $interval(decrementCount, 1000, $scope.countdown);
         };
 
-        $scope.search = function(){
+        $scope.search = () => {
             githubService.getUser($scope.username).then(onUserComplete, onError);
             if (countdownInterval){
                 $interval.cancel(countdownInterval);
