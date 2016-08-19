@@ -21,7 +21,11 @@
     </thead>
     <tbody>
         <tr ng-repeat="repo in repos | orderBy:repoSortOrder">
-            <td>{{repo.name}}</td>
+            <td>
+                <a href="#/repo/{{user.login}}/{{repo.name}}">
+                    {{repo.name}}
+                </a>
+            </td>
             <td>{{repo.stargazers_count | number}}</td> <!-- number filter'i 23145'i 23,145 olarak gosterir -->
             <td>{{repo.language}}</td>
         </tr>
