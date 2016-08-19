@@ -156,3 +156,7 @@ Why build your own?
 1) Create reusable logic, package it in a container.
 2) Create shared data. Her service'in sadece bir instance'i var. Farkli controllerlar, viewlar hep ayni service instance'i kullanir, ayni data olur.
 3) Manage complexity.
+
+Genelde server'a konusan her seyi, http'leri filan bir service'e koymak lazim, controller/model/view filan direkt yapmamali bu isi.
+
+Controllerlari, modellari filan daha basit tutar, daha testable yapar, kucuk parcalara ayirir, vs..
