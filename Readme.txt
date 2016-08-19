@@ -160,3 +160,25 @@ Why build your own?
 Genelde server'a konusan her seyi, http'leri filan bir service'e koymak lazim, controller/model/view filan direkt yapmamali bu isi.
 
 Controllerlari, modellari filan daha basit tutar, daha testable yapar, kucuk parcalara ayirir, vs..
+
+-----------------------------
+
+ROUTING
+
+Allows users to navigate between different screens
+Pass parameters between the controllers that manage these screens
+Tap into browser's back/forward buttons so the browser history is synced with user's location within the app.
+
+* Routing is based on URL (/users/cemkebabson)
+* Routing engine captures the request
+* Routing rules render a response
+
+-- Routing with Angular --
+* Depends on another module: angular-route.js
+* Configure rules into $routeProvider
+$routeProvider
+	.when("/main", {
+		templateUrl: "main.html",
+		controller: "MainCtrl"
+	});
+* Setup a layout view (app'in butun sayfalarinda gorunen view layout view. Mesela headerlar footerlar filan.)

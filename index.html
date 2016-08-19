@@ -3,30 +3,17 @@
 
   <head>
     <script src="Scripts/angular.js"></script>
+    <script src="Scripts/angular-route.js"></script>
     <link rel="stylesheet" href="Styles/style.css" />
-    <script src="JS/script.js"></script>
+    <script src="JS/app.js"></script>
+    <script src="JS/Controllers/MainController.js"></script>
+    <script src="JS/Controllers/UserController.js"></script>
     <script src="JS/Services/githubService.js"></script>
   </head>
 
-  <body ng-controller="MainController">
-    <h1>{{ message }}</h1>
-
-    <div>{{ error }}</div>
-
-    {{ countdown }}
-    <form name="searchUser" ng-submit="search()">
-        <input type="search" required placeholder="User to find..." ng-model="username" />
-        <input type="submit" value="Search" />
-    </form>
-
-    <!-- Su alttaki versiyonda, search box'i bos birakip arama yapabiliriz. Ama bunu istemiyoruz.
-        searchbox'a required ekledik, ama bu ng-click'i durdurmazdi cunku o baska bir controlde.
-        Onun yerine form'a ng-submit verdik, ng-click'i diger kontrolden kaldirdik. -->
-    <!--form name="searchUser">
-        <input type="search" placeholder="User to find..." ng-model="username" />
-        <input type="submit" value="Search" ng-click="search()" />
-    </form-->
-
-    <div ng-include="'Views/userdetails.html'" ng-show="user"> </div>
+  <body>
+      <h1>Github Viewer</h1>
+      <div ng-view></div> <!-- The view that is chosen by routing goes here -->
   </body>
+
 </html>
