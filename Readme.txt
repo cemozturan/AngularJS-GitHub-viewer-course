@@ -182,3 +182,5 @@ $routeProvider
 		controller: "MainCtrl"
 	});
 * Setup a layout view (app'in butun sayfalarinda gorunen view layout view. Mesela headerlar footerlar filan.)
+
+UPDATE (Angular Application Development: ngRoute is fine for simple routing but ui-router is exponentially stronger. It actually turns your app into a state machine. ngRoute can be used once across the app and doesn't allow nested views. With ui-router, you can update a portion of the page instead of re-drawing the whole page.)
